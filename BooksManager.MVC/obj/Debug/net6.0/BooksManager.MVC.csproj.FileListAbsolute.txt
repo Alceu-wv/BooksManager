@@ -111,3 +111,6 @@ C:\code\dotnet\BooksManager\BooksManager.MVC\obj\Debug\net6.0\refint\BooksManage
 C:\code\dotnet\BooksManager\BooksManager.MVC\obj\Debug\net6.0\BooksManager.MVC.pdb
 C:\code\dotnet\BooksManager\BooksManager.MVC\obj\Debug\net6.0\BooksManager.MVC.genruntimeconfig.cache
 C:\code\dotnet\BooksManager\BooksManager.MVC\obj\Debug\net6.0\ref\BooksManager.MVC.dll
+C:\code\dotnet\BooksManager\BooksManager.MVC\bin\Debug\net6.0\System.Net.Http.Formatting.dll
+C:\code\dotnet\BooksManager\BooksManager.MVC\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\code\dotnet\BooksManager\BooksManager.MVC\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll

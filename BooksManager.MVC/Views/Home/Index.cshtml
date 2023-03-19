@@ -3,6 +3,22 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Biblioteca Ceci Meirê</h1>
+    <h2 class="display-6">Seje bem vinde!</h2>
+    <h2>Login</h2>
+
+    <form asp-controller="Auth" asp-action="Login" method="post">
+        <div class="form-group">
+            <label>Email:</label>
+            <input type="email" name="email" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Senha:</label>
+            <input type="password" name="password" class="form-control" />
+        </div>
+        <br />
+        <button type="submit" class="btn btn-primary">Entrar</button>
+        <br />
+        <a href="@Url.Action("Register", "Auth")" class="btn btn-link">Registrar-se</a>
+    </form>
 </div>
