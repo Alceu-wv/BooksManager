@@ -1,0 +1,14 @@
+C:\code\dotnet\BooksManager\BooksManager.Infrastructure\bin\Debug\net6.0\BooksManager.Infrastructure.deps.json
+C:\code\dotnet\BooksManager\BooksManager.Infrastructure\bin\Debug\net6.0\BooksManager.Infrastructure.runtimeconfig.json
+C:\code\dotnet\BooksManager\BooksManager.Infrastructure\bin\Debug\net6.0\BooksManager.Infrastructure.dll
+C:\code\dotnet\BooksManager\BooksManager.Infrastructure\bin\Debug\net6.0\BooksManager.Infrastructure.pdb
+C:\code\dotnet\BooksManager\BooksManager.Infrastructure\obj\Debug\net6.0\BooksManager.Infrastructure.csproj.AssemblyReference.cache
+C:\code\dotnet\BooksManager\BooksManager.Infrastructure\obj\Debug\net6.0\BooksManager.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\code\dotnet\BooksManager\BooksManager.Infrastructure\obj\Debug\net6.0\BooksManager.Infrastructure.AssemblyInfoInputs.cache
+C:\code\dotnet\BooksManager\BooksManager.Infrastructure\obj\Debug\net6.0\BooksManager.Infrastructure.AssemblyInfo.cs
+C:\code\dotnet\BooksManager\BooksManager.Infrastructure\obj\Debug\net6.0\BooksManager.Infrastructure.csproj.CoreCompileInputs.cache
+C:\code\dotnet\BooksManager\BooksManager.Infrastructure\obj\Debug\net6.0\BooksManager.Infrastructure.dll
+C:\code\dotnet\BooksManager\BooksManager.Infrastructure\obj\Debug\net6.0\refint\BooksManager.Infrastructure.dll
+C:\code\dotnet\BooksManager\BooksManager.Infrastructure\obj\Debug\net6.0\BooksManager.Infrastructure.pdb
+C:\code\dotnet\BooksManager\BooksManager.Infrastructure\obj\Debug\net6.0\BooksManager.Infrastructure.genruntimeconfig.cache
+C:\code\dotnet\BooksManager\BooksManager.Infrastructure\obj\Debug\net6.0\ref\BooksManager.Infrastructure.dll
