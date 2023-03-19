@@ -2,11 +2,11 @@
 
 namespace BooksManager.API.Controllers
 {
-    public class BookController : Controller
+    public class BookController : ControllerBase
     {
         public IActionResult Index()
         {
-            return View();
+            return Ok();
         }
     }
 }

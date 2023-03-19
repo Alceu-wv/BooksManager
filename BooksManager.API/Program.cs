@@ -1,6 +1,3 @@
-using Microsoft.EntityFrameworkCore;
-using BooksManager.Infrastructure;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -10,14 +7,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var app = builder.Build();
-
-//builder.Services.AddDbContext<BooksDbContext>(options => options.UseSqlServer(
-//    builder.Configuration.GetConnectionString("InvestimentoDb")
-//   ));
-//BooksManager.Infrastructure.InversionOFControl.DependencyInjection.Inject(builder.Services, builder.Configuration);
+BooksManager.Infrastructure.InversionOFControl.DependencyInjection.Inject(builder.Services, builder.Configuration);
 
 // Configure the HTTP request pipeline.
+var app = builder.Build();
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
