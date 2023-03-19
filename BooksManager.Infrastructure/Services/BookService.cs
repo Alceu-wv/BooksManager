@@ -27,19 +27,19 @@ namespace BooksManager.Infrastructure.Services
             return _bookRepository.GetAll();
         }
 
-        public Book Create(Book book)
+        public void Create(Book book)
         {
-            return _bookRepository.Create(book);
+            _bookRepository.Create(book);
         }
 
-        public Book Update(Book book)
+        public void Update(Book book)
         {
-            return _bookRepository.Update(book);
+            _bookRepository.Update(book);
         }
 
-        public void Delete(int id)
+        public void Delete(Book book)
         {
-            _bookRepository.Delete(id);
+            _bookRepository.Delete(book);
         }
     }
 }

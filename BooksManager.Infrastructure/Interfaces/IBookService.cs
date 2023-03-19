@@ -11,8 +11,8 @@ namespace BooksManager.Infrastructure.Interfaces
     {
         Book GetById(int id);
         IEnumerable<Book> GetAll();
-        Book Create(Book book);
-        Book Update(Book book);
-        void Delete(int id);
+        void Create(Book book);
+        void Update(Book book);
+        void Delete(Book book);
     }
 }

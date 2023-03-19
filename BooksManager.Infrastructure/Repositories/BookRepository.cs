@@ -27,19 +27,19 @@ namespace BooksManager.Infrastructure.Repositories
             return _context.Book.ToList();
         }
 
-        public Book Create(Book book)
+        public void Create(Book book)
         {
             _context.Book.Add(book);
             _context.SaveChanges();
         }
 
-        public Book Update(Book book)
+        public void Update(Book book)
         {
             _context.Book.Update(book);
-            _context.SaveChanges(); ;
+            _context.SaveChanges();
         }
 
-        public void Delete(book)
+        public void Delete(Book book)
         {
             _context.Book.Remove(book);
             _context.SaveChanges();
