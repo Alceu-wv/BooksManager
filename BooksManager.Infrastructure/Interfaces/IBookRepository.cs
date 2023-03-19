@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace BooksManager.Infrastructure.Interfaces
 {
-    public interface IAuthorRepository
+    public interface IBookRepository
     {
-        Author GetById(int id);
-        List<Author> GetAll();
-        void Add(Author author);
-        void Update(Author author);
-        void Delete(Author author);
+        Book GetById(int id);
+        IEnumerable<Book> GetAll();
+        Book Create(Book book);
+        Book Update(Book book);
+        void Delete(Book book);
     }
 }

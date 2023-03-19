@@ -1,4 +1,4 @@
-﻿using BooksManager.API.Entities;
+﻿using BooksManager.Infrastructure.Entities;
 using BooksManager.Infrastructure.Interfaces;
 using System;
 

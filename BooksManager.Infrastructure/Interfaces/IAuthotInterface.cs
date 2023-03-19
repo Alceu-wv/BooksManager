@@ -1,4 +1,4 @@
-﻿using BooksManager.API.Entities;
+﻿using BooksManager.Infrastructure.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

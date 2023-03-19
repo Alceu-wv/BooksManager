@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using BooksManager.Infrastructure.Services;
 using BooksManager.Infrastructure.Interfaces;
-using BooksManager.API.Entities;
+using BooksManager.Infrastructure.Entities;
 
 namespace BooksManager.API.Controllers
 {

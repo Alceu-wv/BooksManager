@@ -1,4 +1,4 @@
-﻿namespace BooksManager.API.Entities
+﻿namespace BooksManager.Infrastructure.Entities
 {
     public class User
     {

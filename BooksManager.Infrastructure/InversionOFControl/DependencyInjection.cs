@@ -15,6 +15,8 @@ namespace BooksManager.Infrastructure.InversionOFControl
         {
             services.AddScoped<IAuthorService, AuthorService>();
             services.AddScoped<IAuthorRepository, AuthorRepository>();
+            services.AddScoped<IBookService, BookService>();
+            services.AddScoped<IBookRepository, BookRepository>();
             services.AddDbContext<BooksDbContext>(options => options.UseSqlServer(
                configuration.GetConnectionString("BooksDatabase")
                ));

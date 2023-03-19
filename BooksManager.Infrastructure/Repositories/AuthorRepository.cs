@@ -1,4 +1,4 @@
-﻿using BooksManager.API.Entities;
+﻿using BooksManager.Infrastructure.Entities;
 using BooksManager.Infrastructure.Interfaces;
 
 namespace BooksManager.Infrastructure.Repositories
