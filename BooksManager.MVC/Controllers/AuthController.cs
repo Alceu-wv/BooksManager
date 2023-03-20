@@ -8,7 +8,10 @@ namespace BooksManager.MVC.Controllers
     public class AuthController : Controller
     {
         [HttpGet]
-        public ViewResult Login() => View();
+        public IActionResult Login()
+        {
+            return RedirectToAction("Create", "Library");
+        }
 
 
         [HttpGet]

@@ -7,6 +7,12 @@ C:\code\dotnet\BooksManager\BooksManager.API\bin\Debug\net6.0\BooksManager.API.d
 C:\code\dotnet\BooksManager\BooksManager.API\bin\Debug\net6.0\BooksManager.API.pdb
 C:\code\dotnet\BooksManager\BooksManager.API\bin\Debug\net6.0\Azure.Core.dll
 C:\code\dotnet\BooksManager\BooksManager.API\bin\Debug\net6.0\Azure.Identity.dll
+C:\code\dotnet\BooksManager\BooksManager.API\bin\Debug\net6.0\System.Web.Mvc.dll
+C:\code\dotnet\BooksManager\BooksManager.API\bin\Debug\net6.0\System.Web.Razor.dll
+C:\code\dotnet\BooksManager\BooksManager.API\bin\Debug\net6.0\System.Web.Helpers.dll
+C:\code\dotnet\BooksManager\BooksManager.API\bin\Debug\net6.0\System.Web.WebPages.Deployment.dll
+C:\code\dotnet\BooksManager\BooksManager.API\bin\Debug\net6.0\System.Web.WebPages.Razor.dll
+C:\code\dotnet\BooksManager\BooksManager.API\bin\Debug\net6.0\System.Web.WebPages.dll
 C:\code\dotnet\BooksManager\BooksManager.API\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\code\dotnet\BooksManager\BooksManager.API\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
 C:\code\dotnet\BooksManager\BooksManager.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
@@ -33,6 +39,7 @@ C:\code\dotnet\BooksManager\BooksManager.API\bin\Debug\net6.0\Microsoft.Identity
 C:\code\dotnet\BooksManager\BooksManager.API\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
 C:\code\dotnet\BooksManager\BooksManager.API\bin\Debug\net6.0\Microsoft.OpenApi.dll
 C:\code\dotnet\BooksManager\BooksManager.API\bin\Debug\net6.0\Microsoft.SqlServer.Server.dll
+C:\code\dotnet\BooksManager\BooksManager.API\bin\Debug\net6.0\Microsoft.Web.Infrastructure.dll
 C:\code\dotnet\BooksManager\BooksManager.API\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
 C:\code\dotnet\BooksManager\BooksManager.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\code\dotnet\BooksManager\BooksManager.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
@@ -75,10 +82,3 @@ C:\code\dotnet\BooksManager\BooksManager.API\obj\Debug\net6.0\refint\BooksManage
 C:\code\dotnet\BooksManager\BooksManager.API\obj\Debug\net6.0\BooksManager.API.pdb
 C:\code\dotnet\BooksManager\BooksManager.API\obj\Debug\net6.0\BooksManager.API.genruntimeconfig.cache
 C:\code\dotnet\BooksManager\BooksManager.API\obj\Debug\net6.0\ref\BooksManager.API.dll
-C:\code\dotnet\BooksManager\BooksManager.API\bin\Debug\net6.0\System.Web.Mvc.dll
-C:\code\dotnet\BooksManager\BooksManager.API\bin\Debug\net6.0\System.Web.Razor.dll
-C:\code\dotnet\BooksManager\BooksManager.API\bin\Debug\net6.0\System.Web.Helpers.dll
-C:\code\dotnet\BooksManager\BooksManager.API\bin\Debug\net6.0\System.Web.WebPages.Deployment.dll
-C:\code\dotnet\BooksManager\BooksManager.API\bin\Debug\net6.0\System.Web.WebPages.Razor.dll
-C:\code\dotnet\BooksManager\BooksManager.API\bin\Debug\net6.0\System.Web.WebPages.dll
-C:\code\dotnet\BooksManager\BooksManager.API\bin\Debug\net6.0\Microsoft.Web.Infrastructure.dll

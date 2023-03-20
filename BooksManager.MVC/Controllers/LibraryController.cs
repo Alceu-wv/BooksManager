@@ -1,6 +1,7 @@
 ﻿using BooksManager.Infrastructure;
 using BooksManager.Infrastructure.Entities;
 using BooksManager.Infrastructure.Interfaces;
+using BooksManager.Infrastructure.Repositories;
 using BooksManager.Infrastructure.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -14,6 +15,11 @@ public class LibraryController : Controller
         _bookService = bookService;
         _authorService = authorService;
     }
+
+    [HttpGet]
+    public ViewResult CreateAuthorPage() => View();
+
+
     [HttpGet]
     public IActionResult Create()
     {
@@ -62,5 +68,23 @@ public class LibraryController : Controller
         }).ToList();
 
         return View(viewModel);
+    }
+
+    [HttpPost]
+    public IActionResult CreateAuthor(Author author)
+    {
+        if (ModelState.IsValid)
+        {
+            _authorService.Add(author);
+            BookViewModel viewModel = new();
+            viewModel.Authors = _authorService.GetAll().Select(a => new AuthorViewModel
+            {
+                Id = a.Id,
+                FullName = $"{a.FirstName} {a.LastName}"
+            }).ToList();
+            return View("Create", viewModel);
+        }
+
+        return BadRequest();
     }
 }

@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BooksManager.Infrastructure", "BooksManager.Infrastructure\BooksManager.Infrastructure.csproj", "{DE50F207-9243-4EE2-8E4D-3C5153860103}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BooksManager.Infrastructure", "BooksManager.Infrastructure\BooksManager.Infrastructure.csproj", "{DE50F207-9243-4EE2-8E4D-3C5153860103}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BooksManager.API", "BooksManager.API\BooksManager.API.csproj", "{99C939A8-CEC8-47D4-AE3F-F4AE2F602C19}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BooksManager.API", "BooksManager.API\BooksManager.API.csproj", "{99C939A8-CEC8-47D4-AE3F-F4AE2F602C19}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BooksManager.MVC", "BooksManager.MVC\BooksManager.MVC.csproj", "{7132B807-4D97-4FEE-8B92-C0DC6E36DD90}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BooksManager.MVC", "BooksManager.MVC\BooksManager.MVC.csproj", "{7132B807-4D97-4FEE-8B92-C0DC6E36DD90}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
