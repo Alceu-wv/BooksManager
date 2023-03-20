@@ -27,7 +27,7 @@ namespace BooksManager.MVC.Controllers
 
             if (response.IsSuccessStatusCode)
             {
-                return RedirectToAction("Login", "Auth");
+                return RedirectToAction("Create", "Library");
             }
             else
             {

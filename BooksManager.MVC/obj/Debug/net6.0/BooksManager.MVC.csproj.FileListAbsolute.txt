@@ -114,3 +114,10 @@ C:\code\dotnet\BooksManager\BooksManager.MVC\obj\Debug\net6.0\ref\BooksManager.M
 C:\code\dotnet\BooksManager\BooksManager.MVC\bin\Debug\net6.0\System.Net.Http.Formatting.dll
 C:\code\dotnet\BooksManager\BooksManager.MVC\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\code\dotnet\BooksManager\BooksManager.MVC\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+C:\code\dotnet\BooksManager\BooksManager.MVC\bin\Debug\net6.0\System.Web.Mvc.dll
+C:\code\dotnet\BooksManager\BooksManager.MVC\bin\Debug\net6.0\System.Web.Razor.dll
+C:\code\dotnet\BooksManager\BooksManager.MVC\bin\Debug\net6.0\System.Web.Helpers.dll
+C:\code\dotnet\BooksManager\BooksManager.MVC\bin\Debug\net6.0\System.Web.WebPages.Deployment.dll
+C:\code\dotnet\BooksManager\BooksManager.MVC\bin\Debug\net6.0\System.Web.WebPages.Razor.dll
+C:\code\dotnet\BooksManager\BooksManager.MVC\bin\Debug\net6.0\System.Web.WebPages.dll
+C:\code\dotnet\BooksManager\BooksManager.MVC\bin\Debug\net6.0\Microsoft.Web.Infrastructure.dll
