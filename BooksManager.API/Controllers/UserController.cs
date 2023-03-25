@@ -16,6 +16,13 @@ namespace BooksManager.API.Controllers
             _userService = userService;
         }
 
+        [HttpPost("login")]
+        public ActionResult<User> Login(User LoginViewModel)
+        {
+            // TODO: Implement login and return JWT Token
+            return Ok();
+        }
+
         // GET: api/User/5
         [HttpGet("{id}")]
         public ActionResult<User> GetUserById(int id)
