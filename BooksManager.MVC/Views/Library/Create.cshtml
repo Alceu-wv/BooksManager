@@ -1,7 +1,8 @@
 ﻿@model BooksManager.Infrastructure.ViewModels.BookViewModel
 
-<h2>Cadastrar Autor</h2>
-<a class="btn btn-primary" asp-action="CreateAuthorPage">Página de Cadastro de Autor</a>
+<h1>Biblioteca</h1>
+<a class="btn btn-primary" asp-action="CreateAuthorPage">Gerenciar Autores</a>
+<a class="btn btn-primary" asp-action="Bookshelf">Estante</a>
 <h2>Cadastrar Livro</h2>
 <form method="post" asp-action="Create">
     <div class="form-group">
@@ -24,8 +25,5 @@
             <option value="">Selecione um autor</option>
         </select>
     </div>
-    <button type="submit" class="btn btn-primary">Salvar</button>
-    <h2>Ver Estante</h2>
-    <a class="btn btn-primary" asp-action="Bookshelf">Estante</a>
-
+    <button type="submit" class="btn btn-primary">Salvar</button>  
 </form>

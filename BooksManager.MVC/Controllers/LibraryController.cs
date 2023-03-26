@@ -35,10 +35,17 @@ public class LibraryController : Controller
     }
 
     [HttpGet]
-    public ActionResult EditAuthor(int authorId)
+    public ActionResult EditAuthor(int Id)
     {
-        Author author = _authorService.GetById(authorId);
+        Author author = _authorService.GetById(Id);
         _authorService.Update(author);
+        return RedirectToAction("CreateAuthorPage");
+    }
+
+    [HttpGet]
+    public ActionResult EditAuthorView(int Id)
+    {
+        // TODO: Edit Author
         return RedirectToAction("CreateAuthorPage");
     }
 
