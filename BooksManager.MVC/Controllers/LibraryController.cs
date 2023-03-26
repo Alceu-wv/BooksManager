@@ -25,13 +25,26 @@ public class LibraryController : Controller
     [HttpGet]
     public ViewResult EditBookView(int id)
     {
-        var book = _bookService.GetById(id);
-        return View(book);
+        var livro = _bookService.GetById(id);
+        var autores = _authorService.GetAll().Select(a => new AuthorViewModel
+        {
+            Id = a.Id,
+            FullName = $"{a.FirstName} {a.LastName}"
+        }).ToList();
+
+        var viewModel = new EditBookViewModel
+        {
+            Book = livro,
+            Authors = autores
+        };
+
+        return View(viewModel);
     }
 
     [HttpPost]
-    public ActionResult EditBook(Book book)
+    public ActionResult EditBook(Book book, int authorId)
     {
+        book.Authors = new List<Author> { _authorService.GetById(authorId) };
         _bookService.Update(book);
         return RedirectToAction("Bookshelf");
     }
