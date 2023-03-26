@@ -1,0 +1,29 @@
+﻿@model List<BooksManager.Infrastructure.Entities.Book>
+
+<h1>Lista de Livros</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>ISBN</th>
+            <th>Ano de Publicação</th>
+            <th>Opções</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var livro in Model)
+        {
+            <tr>
+                <td>@livro.Title</td>
+                <td>@livro.ISBN</td>
+                <td>@livro.Year</td>
+                <td>
+                    <a href="@Url.Action("EditBookView", new { id = livro.Id })">Editar</a>
+                    <a href="@Url.Action("DeleteBook", new { id = livro.Id })">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

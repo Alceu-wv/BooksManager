@@ -1,31 +1,31 @@
 ﻿@model BooksManager.Infrastructure.ViewModels.BookViewModel
 
-<h2>Registrar Autor</h2>
-<a class="btn btn-primary" asp-action="CreateAuthorPage">Página de Criação de Autor</a>
-
-<h2>Registrar Livro</h2>
-
-@using (Html.BeginForm("Create", "Book", FormMethod.Post))
-{
+<h2>Cadastrar Autor</h2>
+<a class="btn btn-primary" asp-action="CreateAuthorPage">Página de Cadastro de Autor</a>
+<h2>Cadastrar Livro</h2>
+<form method="post" asp-action="Create">
     <div class="form-group">
-        @Html.LabelFor(model => model.Title)
-        @Html.TextBoxFor(model => model.Title, new { @class = "form-control" })
+        <label asp-for="Title" class="control-label"></label>
+        <input asp-for="Title" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="ISBN" class="control-label"></label>
+        <input asp-for="ISBN" class="form-control" />
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.ISBN)
-        @Html.TextBoxFor(model => model.ISBN, new { @class = "form-control" })
+        <label asp-for="Year" class="control-label"></label>
+        <input asp-for="Year" class="form-control" />
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Year)
-        @Html.TextBoxFor(model => model.Year, new { @class = "form-control" })
+        <label asp-for="AuthorId" class="control-label"></label>
+        <select asp-for="AuthorId" asp-items='new SelectList(Model.Authors, "Id", "FullName")' class="form-control">
+            <option value="">Selecione um autor</option>
+        </select>
     </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.AuthorId)
-        @Html.DropDownListFor(model => model.AuthorId, new SelectList(Model.Authors, "Id", "FullName"), "Selecione um autor", new { @class = "form-control" })
-    </div>
-
     <button type="submit" class="btn btn-primary">Salvar</button>
-}
+    <h2>Ver Estante</h2>
+    <a class="btn btn-primary" asp-action="Bookshelf">Estante</a>
+
+</form>

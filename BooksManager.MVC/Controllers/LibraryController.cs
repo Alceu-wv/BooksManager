@@ -19,6 +19,31 @@ public class LibraryController : Controller
     [HttpGet]
     public ViewResult CreateAuthorPage() => View();
 
+    [HttpGet]
+    public ViewResult Bookshelf() => View(_bookService.GetAll());
+
+    [HttpGet]
+    public ViewResult EditBookView(int id)
+    {
+        var book = _bookService.GetById(id);
+        return View(book);
+    }
+
+    [HttpPost]
+    public ActionResult EditBook(Book book)
+    {
+        _bookService.Update(book);
+        return RedirectToAction("Bookshelf");
+    }
+
+    [HttpGet]
+    public ActionResult DeleteBook(int id)
+    {
+        Book book = _bookService.GetById(id);
+        _bookService.Delete(book);
+        return RedirectToAction("Bookshelf");
+    }
+
 
     [HttpGet]
     public IActionResult Create()
@@ -42,23 +67,18 @@ public class LibraryController : Controller
     [HttpPost]
     public IActionResult Create(BookViewModel viewModel)
     {
-        if (ModelState.IsValid)
+
+        // criar novo livro com autor
+        var book = new Book
         {
-            // criar novo livro com autor
-            var book = new Book
-            {
-                Title = viewModel.Title,
-                ISBN = viewModel.ISBN,
-                Year = viewModel.Year,
-                Authors = new List<Author> { _authorService.GetById(viewModel.AuthorId) }
-            };
+            Title = viewModel.Title,
+            ISBN = viewModel.ISBN,
+            Year = viewModel.Year,
+            Authors = new List<Author> { _authorService.GetById(viewModel.AuthorId) }
+        };
 
-            // adicionar novo livro ao contexto e salvar
-            _bookService.Create(book);
-
-            // redirecionar para a página inicial
-            return RedirectToAction("Index");
-        }
+        // adicionar novo livro ao contexto e salvar
+        _bookService.Create(book);
 
         // se a ModelState não for válida, retornar a mesma view com os dados do viewModel
         viewModel.Authors = _authorService.GetAll().Select(a => new AuthorViewModel
@@ -68,6 +88,7 @@ public class LibraryController : Controller
         }).ToList();
 
         return View(viewModel);
+        
     }
 
     [HttpPost]
