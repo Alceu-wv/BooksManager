@@ -5,6 +5,7 @@ using BooksManager.Infrastructure.Repositories;
 using BooksManager.Infrastructure.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 
 public class LibraryController : Controller
 {
@@ -17,7 +18,29 @@ public class LibraryController : Controller
     }
 
     [HttpGet]
-    public ViewResult CreateAuthorPage() => View();
+    public ViewResult CreateAuthorPage()
+    {
+        List<Author> authors = _authorService.GetAll();
+        EditAuthorViewModel viewModel = new EditAuthorViewModel();
+        viewModel.Authors = authors;
+        return View(viewModel);
+    }
+
+    [HttpGet]
+    public ActionResult DeleteAuthor(int Id)
+    {
+        Author author = _authorService.GetById(Id);
+        _authorService.Delete(author);
+        return RedirectToAction("CreateAuthorPage");
+    }
+
+    [HttpGet]
+    public ActionResult EditAuthor(int authorId)
+    {
+        Author author = _authorService.GetById(authorId);
+        _authorService.Update(author);
+        return RedirectToAction("CreateAuthorPage");
+    }
 
     [HttpGet]
     public ViewResult Bookshelf() => View(_bookService.GetAll());
