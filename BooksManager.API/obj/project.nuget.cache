@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Q+esUeBXHThvDuXGK+4w6cjbXpy/CndO2hIHd1qR1DZFuBAinM3qUDwsYGHotTFVCHBJgz2hBkTyJL5Zo41IBw==",
+  "dgSpecHash": "MPFX+e6KGnp73gtAUaaJiVocEQnGnj+Or981Avbp1cmKXYhy2yO3n5rObV28q/OpgFSZ9hWxdmzpNbe094IeGQ==",
   "success": true,
   "projectFilePath": "C:\\code\\dotnet\\BooksManager\\BooksManager.API\\BooksManager.API.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,7 @@
     "C:\\Users\\alceu\\.nuget\\packages\\microsoft.aspnet.mvc\\5.2.9\\microsoft.aspnet.mvc.5.2.9.nupkg.sha512",
     "C:\\Users\\alceu\\.nuget\\packages\\microsoft.aspnet.razor\\3.2.9\\microsoft.aspnet.razor.3.2.9.nupkg.sha512",
     "C:\\Users\\alceu\\.nuget\\packages\\microsoft.aspnet.webpages\\3.2.9\\microsoft.aspnet.webpages.3.2.9.nupkg.sha512",
+    "C:\\Users\\alceu\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.15\\microsoft.aspnetcore.authentication.jwtbearer.6.0.15.nupkg.sha512",
     "C:\\Users\\alceu\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\alceu\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\alceu\\.nuget\\packages\\microsoft.data.sqlclient\\5.0.1\\microsoft.data.sqlclient.5.0.1.nupkg.sha512",

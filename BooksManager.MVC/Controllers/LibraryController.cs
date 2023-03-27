@@ -135,7 +135,7 @@ public class LibraryController : Controller
     }
 
     [HttpPost]
-    public IActionResult CreateAuthor(Author author)
+    public IActionResult CreateAuthor(Author author, IFormFile image)
     {
         if (ModelState.IsValid)
         {

@@ -7,6 +7,7 @@
         public string LastName { get; set; }
         public string Email { get; set; }
         public DateTime BirthDate { get; set; }
+        public byte[] Image { get; set; }
 
         // Relacionamento com livros
         public List<Book> Books { get; set; }

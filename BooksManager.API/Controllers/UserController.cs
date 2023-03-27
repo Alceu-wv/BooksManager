@@ -1,7 +1,9 @@
 ﻿using BooksManager.Infrastructure.Entities;
 using BooksManager.Infrastructure.Interfaces;
+using BooksManager.Infrastructure.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 
 namespace BooksManager.API.Controllers
 {
@@ -10,17 +12,20 @@ namespace BooksManager.API.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
+        private readonly TokenService _tokenService;
+        private readonly IConfiguration _configuration;
 
-        public UserController(IUserService userService)
+        public UserController(IUserService userService, TokenService tokenService, IConfiguration configuration)
         {
             _userService = userService;
+            _tokenService = tokenService;
+            _configuration = configuration;
         }
 
         [HttpPost("login")]
-        public ActionResult<User> Login(User LoginViewModel)
+        public ActionResult<User> Login(User user)
         {
-            // TODO: Implement login and return JWT Token
-            return Ok();
+            return Ok(_tokenService.GenerateToken(user, "HERE$IS$THE$SECRET"));
         }
 
         // GET: api/User/5

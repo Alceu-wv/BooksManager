@@ -2,6 +2,7 @@
 using BooksManager.Infrastructure.Interfaces;
 using BooksManager.Infrastructure.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BooksManager.API.Controllers
 {
@@ -16,6 +17,7 @@ namespace BooksManager.API.Controllers
             _bookService = bookService;
         }
 
+        [Authorize]
         [HttpGet]
         public ActionResult<IEnumerable<Book>> Get()
         {

@@ -13,6 +13,7 @@ namespace BooksManager.Infrastructure.InversionOFControl
     {
         public static void Inject(IServiceCollection services, ConfigurationManager configuration)
         {
+            services.AddScoped<TokenService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IAuthorService, AuthorService>();
