@@ -6,6 +6,7 @@ using BooksManager.Infrastructure.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using static System.Net.Mime.MediaTypeNames;
 
 public class LibraryController : Controller
 {
@@ -17,6 +18,15 @@ public class LibraryController : Controller
         _authorService = authorService;
     }
 
+    private static byte[] FormFileToByteArray(IFormFile formFile)
+    {
+        using (var memoryStream = new MemoryStream())
+        {
+            formFile.CopyToAsync(memoryStream);
+            return memoryStream.ToArray();
+        }
+    }
+
     [HttpGet]
     public ViewResult CreateAuthorPage()
     {
@@ -24,6 +34,21 @@ public class LibraryController : Controller
         EditAuthorViewModel viewModel = new EditAuthorViewModel();
         viewModel.Authors = authors;
         return View(viewModel);
+    }
+
+    [HttpPost]
+    public IActionResult CreateAuthor(Author author, IFormFile photo)
+    {
+        byte[] photoArray = FormFileToByteArray(photo);
+        author.Photo = photoArray;
+        _authorService.Add(author);
+        BookViewModel viewModel = new();
+        viewModel.Authors = _authorService.GetAll().Select(a => new AuthorViewModel
+        {
+            Id = a.Id,
+            FullName = $"{a.FirstName} {a.LastName}"
+        }).ToList();
+        return View("Create", viewModel);
     }
 
     [HttpGet]
@@ -110,7 +135,6 @@ public class LibraryController : Controller
     [HttpPost]
     public IActionResult Create(BookViewModel viewModel)
     {
-
         // criar novo livro com autor
         var book = new Book
         {
@@ -132,23 +156,5 @@ public class LibraryController : Controller
 
         return View(viewModel);
         
-    }
-
-    [HttpPost]
-    public IActionResult CreateAuthor(Author author)
-    {
-        if (ModelState.IsValid)
-        {
-            _authorService.Add(author);
-            BookViewModel viewModel = new();
-            viewModel.Authors = _authorService.GetAll().Select(a => new AuthorViewModel
-            {
-                Id = a.Id,
-                FullName = $"{a.FirstName} {a.LastName}"
-            }).ToList();
-            return View("Create", viewModel);
-        }
-
-        return BadRequest();
     }
 }
