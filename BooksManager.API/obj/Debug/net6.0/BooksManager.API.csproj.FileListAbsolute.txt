@@ -13,6 +13,7 @@ C:\code\dotnet\BooksManager\BooksManager.API\bin\Debug\net6.0\System.Web.Helpers
 C:\code\dotnet\BooksManager\BooksManager.API\bin\Debug\net6.0\System.Web.WebPages.Deployment.dll
 C:\code\dotnet\BooksManager\BooksManager.API\bin\Debug\net6.0\System.Web.WebPages.Razor.dll
 C:\code\dotnet\BooksManager\BooksManager.API\bin\Debug\net6.0\System.Web.WebPages.dll
+C:\code\dotnet\BooksManager\BooksManager.API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\code\dotnet\BooksManager\BooksManager.API\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\code\dotnet\BooksManager\BooksManager.API\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
 C:\code\dotnet\BooksManager\BooksManager.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll

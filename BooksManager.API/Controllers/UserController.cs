@@ -1,5 +1,7 @@
 ﻿using BooksManager.Infrastructure.Entities;
 using BooksManager.Infrastructure.Interfaces;
+using BooksManager.Infrastructure.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,12 +19,15 @@ namespace BooksManager.API.Controllers
         }
 
         [HttpPost("login")]
-        public ActionResult<User> Login(User LoginViewModel)
+        public ActionResult<User> Login(User user)
         {
             // TODO: Implement login and return JWT Token
-            return Ok();
+            var token = TokenService.GenerateToken(user);
+
+            return Ok(token);
         }
 
+        [Authorize]
         // GET: api/User/5
         [HttpGet("{id}")]
         public ActionResult<User> GetUserById(int id)
