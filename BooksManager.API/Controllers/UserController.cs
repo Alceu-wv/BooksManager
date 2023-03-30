@@ -19,12 +19,19 @@ namespace BooksManager.API.Controllers
         }
 
         [HttpPost("login")]
-        public ActionResult<User> Login(User user)
+        public ActionResult<string> Login(User user)
         {
-            // TODO: Implement login and return JWT Token
-            var token = TokenService.GenerateToken(user);
+            bool isAuthenticated = _userService.Login(user.Email, user.Password);
 
-            return Ok(token);
+            if (isAuthenticated)
+            {
+                string token = TokenService.GenerateToken(user);
+                return Ok(token);
+            }
+            else
+            {
+                return Unauthorized();
+            }
         }
 
         [Authorize]

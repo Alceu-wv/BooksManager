@@ -36,5 +36,18 @@ namespace BooksManager.Infrastructure.Services
         {
             _userRepository.Delete(user);
         }
+        public bool Login(string email, string password)
+        {
+            User user = _userRepository.GetByEmail(email);
+
+            if (user != null && user.Password == password)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

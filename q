@@ -1,0 +1,20 @@
+[33m6cb122d[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/JWT_aula16[m[33m, [m[1;32mJWT_aula16[m[33m)[m feat: working token
+[33m3b0abe1[m WIP JWT
+[33m886a4fa[m[33m ([m[1;31morigin/main[m[33m)[m feat: save photo
+[33mfe79aa8[m refact: home page
+[33mbf23054[m feat: delete author
+[33m1446238[m feat: edit book
+[33me13817d[m feat: delete book
+[33m3f222e7[m feat: Create Author
+[33m79ae3f9[m refact: login workflow
+[33me9381a9[m feat: User in database
+[33m628a540[m delete: unused project
+[33m6c90ddf[m WIP - login work around
+[33mcc13e4e[m feat: Book registry view
+[33md787e46[m feat: register view
+[33m5738afc[m feat: User
+[33me5d9cdf[m feat: Author and Book
+[33m6bccf89[m feat: Author and Book
+[33m8c35382[m feat: Author and Book
+[33m432e398[m feat: database
+[33mf4a2145[m first-commit

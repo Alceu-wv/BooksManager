@@ -44,5 +44,9 @@ namespace BooksManager.Infrastructure.Repositories
             _context.User.Remove(user);
             _context.SaveChanges();
         }
+        public User GetByEmail(string email)
+        {
+            return _context.User.FirstOrDefault(u => u.Email == email);
+        }
     }
 }

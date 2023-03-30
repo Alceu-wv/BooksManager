@@ -13,5 +13,6 @@ namespace BooksManager.Infrastructure.Interfaces
         void CreateUser(User user);
         void UpdateUser(User user);
         void DeleteUser(User user);
+        public bool Login(string email, string password);
     }
 }
