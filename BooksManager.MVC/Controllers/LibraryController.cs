@@ -8,9 +8,11 @@ using BooksManager.Infrastructure.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http.Headers;
+using System.Text;
 using static System.Net.Mime.MediaTypeNames;
 
 public class LibraryController : Controller
@@ -82,21 +84,39 @@ public class LibraryController : Controller
             throw new Exception("Failed to delete author");
         }
     }
-    /*
-    {
-        Author author = _authorService.GetById(Id);
-        _authorService.Delete(author);
-        return RedirectToAction("CreateAuthorPage");
-    }
-    */
+
 
     [HttpGet]
     public ActionResult EditAuthor(int Id)
     {
-        Author author = _authorService.GetById(Id);
-        _authorService.Update(author);
-        return RedirectToAction("CreateAuthorPage");
+        var author = _authorService.GetById(Id);
+        var updateUrl = $"https://localhost:7233/api/authors/{Id}";
+        string token = HttpContext.Session.GetString("JwtToken");
+        var requestBody = new StringContent(JsonConvert.SerializeObject(author), Encoding.UTF8, "application/json");
+
+        var httpClient = new HttpClient();
+        var request = new HttpRequestMessage(HttpMethod.Put, updateUrl);
+        request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
+        request.Content = requestBody;
+
+        var response = httpClient.SendAsync(request).Result;
+
+        if (response.IsSuccessStatusCode)
+        {
+            // A ação foi concluída com sucesso
+            return RedirectToAction("CreateAuthorPage");
+        }
+        else if (response.StatusCode == HttpStatusCode.NotFound)
+        {
+            throw new Exception("Author not found");
+        }
+        else
+        {
+            // Algum outro erro ocorreu
+            throw new Exception("Failed to update author");
+        }
     }
+
 
     [HttpGet]
     public ActionResult EditAuthorView(int Id)
@@ -106,7 +126,29 @@ public class LibraryController : Controller
     }
 
     [HttpGet]
-    public ViewResult Bookshelf() => View(_bookService.GetAll());
+    public ViewResult Bookshelf()
+    // => View(_bookService.GetAll());
+    {
+        var getAllUrl = "https://localhost:7233/Book";
+        string token = HttpContext.Session.GetString("JwtToken");
+
+        var httpClient = new HttpClient();
+        var request = new HttpRequestMessage(HttpMethod.Get, getAllUrl);
+        request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+        var response = httpClient.SendAsync(request).Result;
+
+        if (response.IsSuccessStatusCode)
+        {
+            var books = response.Content.ReadAsAsync<IEnumerable<Book>>().Result;
+            return View(books);
+        }
+        else
+        {
+            // Algum outro erro ocorreu
+            throw new Exception("Failed to retrieve books");
+        }
+    }
 
     [HttpGet]
     public ViewResult EditBookView(int id)
@@ -138,11 +180,29 @@ public class LibraryController : Controller
     [HttpGet]
     public ActionResult DeleteBook(int id)
     {
-        Book book = _bookService.GetById(id);
-        _bookService.Delete(book);
-        return RedirectToAction("Bookshelf");
-    }
+        var deleteUrl = $"https://localhost:7233/Book/{id}";
+        string token = HttpContext.Session.GetString("JwtToken");
 
+        var httpClient = new HttpClient();
+        var request = new HttpRequestMessage(HttpMethod.Delete, deleteUrl);
+        request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+        var response = httpClient.SendAsync(request).Result;
+
+        if (response.IsSuccessStatusCode)
+        {
+            return RedirectToAction("Bookshelf");
+        }
+        else if (response.StatusCode == HttpStatusCode.NotFound)
+        {
+            throw new Exception("Book not found");
+        }
+        else
+        {
+            // Algum outro erro ocorreu
+            throw new Exception("Failed to delete book");
+        }
+    }
 
     [HttpGet]
     public IActionResult Create()
@@ -166,26 +226,48 @@ public class LibraryController : Controller
     [HttpPost]
     public IActionResult Create(BookViewModel viewModel)
     {
-        // criar novo livro com autor
+        var httpClient = new HttpClient();
+        string token = HttpContext.Session.GetString("JwtToken");
+        var createUrl = "https://localhost:7233/Book";
+        var getAllAuthorUrl = $"https://localhost:7233/api/Author/{viewModel.AuthorId}";
+
+        var authorRequest = new HttpRequestMessage(HttpMethod.Get, getAllAuthorUrl);
+        authorRequest.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+        var authorResponse = httpClient.SendAsync(authorRequest).Result;
+
+        if (!authorResponse.IsSuccessStatusCode)
+        {
+            throw new Exception("Author not found");
+        }
+
+        var author = JsonConvert.DeserializeObject<Author>(authorResponse.Content.ReadAsStringAsync().Result);
+
         var book = new Book
         {
             Title = viewModel.Title,
             ISBN = viewModel.ISBN,
             Year = viewModel.Year,
-            Authors = new List<Author> { _authorService.GetById(viewModel.AuthorId) }
+            Authors = new List<Author> { author }
         };
 
-        // adicionar novo livro ao contexto e salvar
-        _bookService.Create(book);
+        var requestBody = new StringContent(JsonConvert.SerializeObject(book), Encoding.UTF8, "application/json");
 
-        // se a ModelState não for válida, retornar a mesma view com os dados do viewModel
-        viewModel.Authors = _authorService.GetAll().Select(a => new AuthorViewModel
-        {
-            Id = a.Id,
-            FullName = $"{a.FirstName} {a.LastName}"
-        }).ToList();
-
-        return View(viewModel);
         
+        var requestBook = new HttpRequestMessage(HttpMethod.Post, createUrl);
+        requestBook.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
+        requestBook.Content = requestBody;
+
+        var response = httpClient.SendAsync(requestBook).Result;
+
+        if (response.IsSuccessStatusCode)
+        {
+            return RedirectToAction("Bookshelf");
+        }
+        else
+        {
+            throw new Exception("Failed to create book");
+        }
     }
+
 }
