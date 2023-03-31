@@ -2,9 +2,11 @@
 using Microsoft.AspNetCore.Mvc;
 using BooksManager.Infrastructure.Interfaces;
 using BooksManager.Infrastructure.Entities;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BooksManager.API.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class AuthorController : ControllerBase

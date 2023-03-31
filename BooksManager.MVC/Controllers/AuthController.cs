@@ -2,7 +2,7 @@
 using BooksManager.Infrastructure.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Http.Formatting;
-
+using System.Net.Http.Headers;
 
 namespace BooksManager.MVC.Controllers
 {
@@ -19,6 +19,8 @@ namespace BooksManager.MVC.Controllers
 
             if (response.IsSuccessStatusCode)
             {
+                var token = response.Content.ReadAsStringAsync().Result;
+                HttpContext.Session.SetString("JwtToken", token);
                 return RedirectToAction("Create", "Library");
             }
             else

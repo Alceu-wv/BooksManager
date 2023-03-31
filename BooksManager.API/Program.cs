@@ -28,8 +28,17 @@ builder.Services.AddSwaggerGen();
 
 BooksManager.Infrastructure.InversionOFControl.DependencyInjection.Inject(builder.Services, builder.Configuration);
 
+// Session - backup das sessions
+builder.Services.AddDistributedMemoryCache();
+
+// Session - Implementa o modelo de gerenciamento de Session
+builder.Services.AddSession();
+
 // Configure the HTTP request pipeline.
 var app = builder.Build();
+
+// Session - Habilita o uso
+app.UseSession();
 
 if (app.Environment.IsDevelopment())
 {
