@@ -1,11 +1,16 @@
-﻿using BooksManager.Infrastructure;
+﻿using Azure;
+using Azure.Core;
+using BooksManager.Infrastructure;
 using BooksManager.Infrastructure.Entities;
 using BooksManager.Infrastructure.Interfaces;
 using BooksManager.Infrastructure.Repositories;
 using BooksManager.Infrastructure.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Net;
+using System.Net.Http.Headers;
 using static System.Net.Mime.MediaTypeNames;
 
 public class LibraryController : Controller
@@ -54,10 +59,36 @@ public class LibraryController : Controller
     [HttpGet]
     public ActionResult DeleteAuthor(int Id)
     {
+        var httpClient = new HttpClient();
+        var deleteUrl = $"https://localhost:7233/api/Author/{Id}";
+        string token = HttpContext.Session.GetString("JwtToken");
+        //var response = httpClient.DeleteAsync(deleteUrl).Result;
+        var request = new HttpRequestMessage(HttpMethod.Delete, deleteUrl);
+        request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
+        var response = httpClient.SendAsync(request).Result;
+
+        if (response.IsSuccessStatusCode)
+        {
+            // A ação foi concluída com sucesso
+            return RedirectToAction("CreateAuthorPage");
+        }
+        else if (response.StatusCode == HttpStatusCode.NotFound)
+        {
+            throw new Exception("Author not found");
+        }
+        else
+        {
+            // Algum outro erro ocorreu
+            throw new Exception("Failed to delete author");
+        }
+    }
+    /*
+    {
         Author author = _authorService.GetById(Id);
         _authorService.Delete(author);
         return RedirectToAction("CreateAuthorPage");
     }
+    */
 
     [HttpGet]
     public ActionResult EditAuthor(int Id)
